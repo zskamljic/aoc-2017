@@ -8,7 +8,7 @@ public class Day10 {
         var inputStr = Files.readString(Paths.get("input10.txt")).trim();
 
         part1(inputStr);
-        part2(inputStr);
+        System.out.println(part2(inputStr));
     }
 
     private static void part1(String inputStr) {
@@ -29,7 +29,7 @@ public class Day10 {
         System.out.println(list[0] * list[1]);
     }
 
-    private static void part2(String inputStr) {
+    static String part2(String inputStr) {
         // Append static suffix
         inputStr += (char) 17;
         inputStr += (char) 31;
@@ -63,9 +63,9 @@ public class Day10 {
         // Create hex string
         var builder = new StringBuilder();
         for (var datum : denseHash) {
-            builder.append(Integer.toHexString(datum));
+            builder.append(String.format("%02x", datum));
         }
-        System.out.println(builder);
+        return builder.toString();
     }
 
     private static int[] createList() {
