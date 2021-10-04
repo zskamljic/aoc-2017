@@ -11,9 +11,40 @@ public class Day23 {
             .map(Instruction::parse)
             .toList();
 
+        part01(instructions);
+        part02();
+    }
+
+    private static void part01(List<Instruction> instructions) {
         var program = new Program(instructions);
         program.execute();
         System.out.println(program.muls);
+    }
+
+    private static void part02() {
+        int b = 79 * 100 + 100_000;
+        int c = b + 17000;
+        int d;
+        int f;
+        int g;
+        int h = 0;
+        do {
+            f = 1; // 9
+            d = 2; // 10
+            while (d < b) {
+                if (b % d == 0) {
+                    f = 0;
+                    break;
+                }
+                d++; // 21
+            }
+            if (f == 0) { // 25
+                h++; // 26
+            }
+            g = b - c; // 27
+            b += 17; // 31
+        } while (g != 0);
+        System.out.println(h);
     }
 
     static class Program {
